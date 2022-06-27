@@ -1,7 +1,8 @@
 package com.yuriycode.actualnewsapp.data.api
 
-import android.graphics.pdf.PdfDocument
+import com.yuriycode.actualnewsapp.models.NewsResponse
 import com.yuriycode.actualnewsapp.utils.Constants.Companion.API_KEY
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -12,11 +13,11 @@ interface NewsService {
         @Query("q") query: String,
         @Query("page") page: Int = 1,
         @Query("apiKey") apiKey: String = API_KEY
-    )
+    ) :Response<NewsResponse>
 
     suspend fun getHeadlines(
         @Query("country") countryCode:String = "ua",
         @Query("page") page: Int = 1,
         @Query("apiKey") apiKey:String = API_KEY
-    )
+    ) :Response<NewsResponse>
 }
