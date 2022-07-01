@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.item_article.view.*
 
 class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
-    inner class NewsViewHolder (view:View): RecyclerView.ViewHolder(view)
+    inner class NewsViewHolder(view:View) : RecyclerView.ViewHolder(view)
 
     private val callback = object : DiffUtil.ItemCallback<Article>() {
         override fun areItemsTheSame(oldItem:Article, newItem:Article):Boolean {
@@ -33,7 +33,7 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
     val differ = AsyncListDiffer(this, callback)
 
     override fun onCreateViewHolder(parent:ViewGroup, viewType:Int):NewsViewHolder {
-        return  NewsViewHolder(
+        return NewsViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.item_article, parent, false)
         )
     }
@@ -45,6 +45,10 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
             article_image.clipToOutline = true
             article_title.text = article.title
             article_date.text = article.publishedAt
+
+            setOnClickListener {
+                onItemClickListener?.let { it(article) }
+            }
         }
     }
 
@@ -52,10 +56,9 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
         return differ.currentList.size
     }
 
-    private var onItemClickListener: ((Article) -> Unit)? = null
+    private var onItemClickListener:((Article) -> Unit)? = null
 
-    fun setOnItemClickListener(listener: (Article) -> Unit) {
+    fun setOnItemClickListener(listener:(Article) -> Unit) {
         onItemClickListener = listener
     }
-
 }

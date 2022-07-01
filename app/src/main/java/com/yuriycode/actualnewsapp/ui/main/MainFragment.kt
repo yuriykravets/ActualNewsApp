@@ -38,8 +38,9 @@ class MainFragment : Fragment() {
         viewModel.newsLiveData.observe(viewLifecycleOwner) { responce ->
             when(responce) {
                 is Resource.Success -> {
-                    responce.data.let {
-                        newsAdapter.differ.submitList(it?.articles)
+                    progress_bar.visibility = View.INVISIBLE
+                    responce.data?.let {
+                        newsAdapter.differ.submitList(it.articles)
                     }
 
                 }
