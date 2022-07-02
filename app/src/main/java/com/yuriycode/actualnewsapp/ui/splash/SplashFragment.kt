@@ -11,13 +11,13 @@ import com.yuriycode.actualnewsapp.databinding.FragmentSplashBinding
 
 class SplashFragment : Fragment() {
 
-    private var _binding:FragmentSplashBinding? = null
+    private var _binding: FragmentSplashBinding? = null
     private val mBinding get() = _binding!!
 
     override fun onCreateView(
-        inflater:LayoutInflater, container:ViewGroup?,
-        savedInstanceState:Bundle?
-    ):View? {
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         _binding = FragmentSplashBinding.inflate(layoutInflater, container, false)
         return mBinding.root
     }

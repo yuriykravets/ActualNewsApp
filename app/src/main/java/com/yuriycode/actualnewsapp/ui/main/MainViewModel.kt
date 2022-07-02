@@ -28,7 +28,7 @@ class MainViewModel @Inject constructor(private val repository: NewsRepository):
             newsLiveData.postValue(Resource.Loading())
             val response = repository.getNews(countryCode = countryCode, pageNumber = newsPage)
             if (response.isSuccessful) {
-                response.body().let {res ->
+                response.body().let { res ->
                     newsLiveData.postValue(Resource.Success(res))
                 }
         } else {
