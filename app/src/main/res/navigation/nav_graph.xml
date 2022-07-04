@@ -3,13 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/detailsFragment">
+    app:startDestination="@id/mainFragment">
 
     <fragment
         android:id="@+id/detailsFragment"
         android:name="com.yuriycode.actualnewsapp.ui.details.DetailsFragment"
         android:label="fragment_details"
-        tools:layout="@layout/fragment_details" />
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="article"
+            app:argType="com.yuriycode.actualnewsapp.models.Article" />
+    </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.yuriycode.actualnewsapp.ui.favorite.FavoriteFragment"
