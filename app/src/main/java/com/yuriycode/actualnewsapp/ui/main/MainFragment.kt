@@ -44,6 +44,15 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initAdapter()
+
+        newsAdapter.setOnItemClickListener {
+            val bundle = bundleOf( "article" to it)
+            view.findNavController().navigate(
+                R.id.action_mainFragment_to_detailsFragment,
+            bundle
+            )
+        }
+
         viewModel.newsLiveData.observe(viewLifecycleOwner) { responce ->
             when(responce) {
                 is Resource.Success -> {
