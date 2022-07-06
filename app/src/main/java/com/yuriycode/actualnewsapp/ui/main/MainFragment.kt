@@ -1,12 +1,14 @@
 package com.yuriycode.actualnewsapp.ui.main
 
 import android.os.Bundle
+import android.text.Editable
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,6 +18,11 @@ import com.yuriycode.actualnewsapp.ui.adapters.NewsAdapter
 import com.yuriycode.actualnewsapp.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_main.*
+import kotlinx.android.synthetic.main.fragment_search.*
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
@@ -37,15 +44,6 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initAdapter()
-
-        newsAdapter.setOnItemClickListener {
-            val bundle = bundleOf("article" to it)
-            view.findNavController().navigate(
-                R.id.action_mainFragment_to_detailsFragment,
-                bundle
-            )
-        }
-
         viewModel.newsLiveData.observe(viewLifecycleOwner) { responce ->
             when(responce) {
                 is Resource.Success -> {

@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/dark"
         android:textSize="12sp"
-        tools:text="Сер, Квітень 19 · 20.00" />
+        tools:text="Сер, Квітень 19 - 20.00" />
 
         <TextView
             android:id="@+id/article_title"
