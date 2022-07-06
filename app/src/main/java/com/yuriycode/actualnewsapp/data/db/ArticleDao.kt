@@ -4,10 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.yuriycode.actualnewsapp.models.Article
 
+@Dao
 interface ArticleDao {
 
     @Query("SELECT * FROM articles")
-    suspend fun getAllArticles(): LiveData<List<Article>>
+    fun getAllArticles(): List<Article>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(article: Article)
