@@ -17,10 +17,11 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    private var _binding:ActivityMainBinding? = null
+
+    private var _binding: ActivityMainBinding? = null
     private val mBinding get() = _binding!!
 
-    override fun onCreate(savedInstanceState:Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_splash)
         CoroutineScope(Dispatchers.Main).launch {
