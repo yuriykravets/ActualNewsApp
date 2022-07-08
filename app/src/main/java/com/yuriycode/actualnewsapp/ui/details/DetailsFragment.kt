@@ -8,14 +8,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.URLUtil
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.yuriycode.actualnewsapp.R
 import com.yuriycode.actualnewsapp.databinding.FragmentDetailsBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_main.*
+import kotlinx.android.synthetic.main.fragment_search.*
+import kotlinx.android.synthetic.main.item_article.*
 
 @AndroidEntryPoint
 class DetailsFragment : Fragment() {
@@ -25,17 +32,20 @@ class DetailsFragment : Fragment() {
     private val bundleArgs: DetailsFragmentArgs by navArgs()
     private val viewModel by viewModels<DetailsViewModel>()
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentDetailsBinding.inflate(layoutInflater, container, false)
         return mBinding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val articleArg = bundleArgs.article
+
 
         articleArg.let { article ->
             article.urlToImage.let {
@@ -62,10 +72,14 @@ class DetailsFragment : Fragment() {
                 }
             }
 
+
+            mBinding.iconBack.setOnClickListener {
+                viewModel.saveFavoriteArticle(article)
+            }
+
             mBinding.iconFavourite.setOnClickListener {
                 viewModel.saveFavoriteArticle(article)
             }
         }
     }
-
 }
