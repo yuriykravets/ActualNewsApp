@@ -30,4 +30,6 @@ All what you need to run the project is to clone the repository to your device a
 * [Dagger Hilt](https://developer.android.com/training/dependency-injection/hilt-android)
 * [MVVM](https://developer.android.com/jetpack/docs/guide)   
 
+## Liked this repository? :)
 
+Support it with a star✨
