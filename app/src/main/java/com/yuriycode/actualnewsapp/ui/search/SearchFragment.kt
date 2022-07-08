@@ -59,6 +59,15 @@ class SearchFragment : Fragment() {
                 }
             }
         }
+
+        newsAdapter.setOnItemClickListener {
+            val bundle = bundleOf( "article" to it)
+            view.findNavController().navigate(
+                R.id.action_searchFragment_to_detailsFragment3,
+                bundle
+            )
+        }
+
         viewModel.searchNewsLiveData.observe(viewLifecycleOwner) { responce ->
             when(responce) {
                 is Resource.Success -> {
