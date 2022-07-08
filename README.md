@@ -14,3 +14,20 @@ All what you need to run the project is to clone the repository to your device a
   <img width="400" height="800" src=https://user-images.githubusercontent.com/97830497/178013355-4a6edc05-3b3f-4e3e-bff5-520b68ab246f.png>
   <img width="400" height="800" src=https://user-images.githubusercontent.com/97830497/178013391-a8b07a47-1b5c-489a-8742-872d8161df0a.png>
 </p>
+
+## Technologies
+
+* [Android SDK](https://docs.developers.optimizely.com/full-stack/docs/android-quickstart-optimizely-full-stack)
+* [Kotlin](https://kotlinlang.org/)
+* [Kotlin Coroutines](https://developer.android.com/kotlin/coroutines)
+* [Room](https://developer.android.com/jetpack/androidx/releases/room)
+* [Glide](https://github.com/bumptech/glide)
+* [Fragments](https://developer.android.com/guide/fragments)
+* [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)
+* [Dagger Hilt](https://developer.android.com/training/dependency-injection/hilt-android)
+* [Navigation Components](https://developer.android.com/guide/navigation/navigation-getting-started) 
+* [Retrofit](https://square.github.io/retrofit/)
+* [Dagger Hilt](https://developer.android.com/training/dependency-injection/hilt-android)
+* [MVVM](https://developer.android.com/jetpack/docs/guide)   
+
+
